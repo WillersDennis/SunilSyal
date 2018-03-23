@@ -32,7 +32,15 @@ restService.post("/rewe", function(req, res) {
       source: "webhook-echo-sample"
     });
   }
-  
+  if (action.match("marktadresse"))
+  {
+    speech = "Humboldtstraße 131, 51145 Köln";
+    return res.json({
+      speech: speech,
+      displayText: speech,
+      source: "webhook-echo-sample"
+    });
+  }
   //return res.json({
   //  speech: speech,
   //  displayText: speech,

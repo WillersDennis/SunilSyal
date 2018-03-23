@@ -41,6 +41,15 @@ restService.post("/rewe", function(req, res) {
       source: "webhook-echo-sample"
     });
   }
+  if (action.match("marktangebote"))
+  {
+    speech = "Aktuell gibt es 20-fach Punkte auf frische Erdbeeren, die 2 kg Schale für nur 2,49 EUR.";
+    return res.json({
+      speech: speech,
+      displayText: speech,
+      source: "webhook-echo-sample"
+    });
+  }
   //return res.json({
   //  speech: speech,
   //  displayText: speech,

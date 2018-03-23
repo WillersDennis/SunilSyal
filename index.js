@@ -21,11 +21,23 @@ restService.post("/rewe", function(req, res) {
     req.body.result.parameters.echoText
       ? req.body.result.parameters.echoText
       : "Seems like some problem. Speak again!";
-  return res.json({
-    speech: speech,
-    displayText: speech,
-    source: "webhook-echo-sample"
-  });
+   
+  var action = req.body.result.action;
+  
+  if (action.match("echo"))
+  {
+    return res.json({
+      speech: speech,
+      displayText: speech,
+      source: "webhook-echo-sample"
+    });
+  }
+  
+  //return res.json({
+  //  speech: speech,
+  //  displayText: speech,
+  //  source: "webhook-echo-sample"
+  //});
 });
 
 //Standard Vorgabe
